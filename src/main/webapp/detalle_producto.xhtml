@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:body>
+        <ui:composition template="/templates/layout.xhtml">
+
+            <ui:define name="content">
+                <div class="col-lg-9">
+
+
+                    <div class="row" style="margin-top: 30px">
+
+                        <div class="card mt-4">
+                            <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt=""/>
+                                <div class="card-body">
+                                    <h3 class="card-title">#{productoBean.name}</h3>
+                                    <h:form>
+                                        <h:commandButton value="Comprar" action="#{carritoBean.agregarCarrito}">
+                                                <f:param value="#{product.id}" name="id"/>
+                                        </h:commandButton>
+                                    </h:form>
+                                    <h4>#{productoBean.precio}</h4>
+                                    <p class="card-text">#{productoBean.descripcion}</p>
+                                    <span class="text-warning">#{productoBean.disponibilidad}</span>
+                                    
+                                </div>
+                        </div>
+                        <!-- /.card -->
+
+                        <div class="card card-outline-secondary my-4">
+                            <div class="card-header">
+                                InformaciÃ³n del arreglo
+                            </div>
+                            <div class="card-body">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+                                <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+                                
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+                                    <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+                                    
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+                                        <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+                                        
+                                           
+                            </div>
+                        </div>
+                    <!-- /.card -->
+
+                    </div>
+                    <!-- /.row -->
+
+                </div>
+                <!-- /.col-lg-9 -->             
+            </ui:define>
+
+        </ui:composition>
+    </h:body>
+</html>

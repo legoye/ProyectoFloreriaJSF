@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:body>
+        <ui:composition template="/templates/layout.xhtml">
+
+            <ui:define name="contentSide">
+
+            </ui:define>
+
+            <ui:define name="content">
+                <div class="container">
+                    <div class="row">
+                        <div class=" col-md-2">
+
+                        </div>
+
+                        <div class=" col-md-8">
+                        <div class="row" style="margin-top: 50px">
+                            <h2>Mi Carrito de Compras</h2>
+
+                            <h:dataTable value="#{carritoBean.list}" var="oSig" border="1"
+                                         headerClass="mdb-color darken-3" 
+                                         styleClass="table">
+                                <f:facet name="header">
+                                    <h:outputText value="Mis carrito de Compras"/>
+                                </f:facet>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Nombre del Artículo"/>
+                                    </f:facet>
+                                    <h:outputText value="#{oSig.name}"/>
+
+                                </h:column>
+                                <h:column footerClass="cab">
+                                    <f:facet name="header">
+                                        <h:outputText value="Descripcion del Producto"/>
+                                    </f:facet>
+                                    <h:outputText value="#{oSig.descripcion}"/>
+
+                                </h:column>
+                                <h:column footerClass="cab">
+                                    <f:facet name="header">
+                                        <h:outputText value="Precio"/>
+                                    </f:facet>
+                                    <h:outputText value="#{oSig.precio}"/>
+
+                                </h:column>
+                                
+                                 <h:column footerClass="cab">
+                                    <f:facet name="header">
+                                        <h:outputText value="Eliminar"/>
+                                    </f:facet>
+                                     <h:form>
+                                     <h:commandButton value="Eliminar" action="#{carritoBean.borrarCarrito()}">
+                                                <f:param value="#{oSig.id}" name="id"/>
+                                    </h:commandButton>
+                                     </h:form>     
+
+                                </h:column>
+
+                                <f:facet name="footer">
+                                    <h:outputText value="Mis articulos seleccionados"/>
+                                </f:facet>
+                            </h:dataTable>
+
+
+
+                            <!--Table
+                            <table class="table">
+                                
+                                <thead class="mdb-color darken-3">
+                                    <tr class="text-white">
+                                        <th>#No.</th>
+                                        <th>Nombre del Producto</th>
+                                        <th>DescripciÃ³n</th>
+                                        <th>Precio</th>
+                                    </tr>
+                                </thead>
+                               
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Producto 1</td>
+                                        <td>DescripciÃ³n producto 1</td>
+                                        <td>$500.00</td>
+                                    </tr>                             
+                                </tbody>
+                                
+                            </table>
+                            Table-->
+                        </div>
+                        <div class="row" >
+                            <div class="col-lg-8 col-md-6 mb-4">
+                            </div>
+                            <div class="col-lg-2 col-md-6 mb-4">
+                                <h1>Total:</h1>
+                            </div>
+                            <div class="col-lg-2 col-md-6 mb-4">             
+                                <h2>$2100.00</h2>
+                            </div>
+
+                        </div>
+                            
+                        <div class=" col-md-2">
+
+                        </div>
+
+                        <div class="row" >
+
+                            <div class="col-lg-8 col-md-6 mb-4">
+                            </div>
+                            <div class="col-lg-2 col-md-6 mb-4">
+                            </div>
+                            <div class="col-lg-2 col-md-6 mb-4">             
+                                <a href="pago.html" class="btn btn-primary">Pagar</a>
+                            </div>
+
+                        </div> 
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+            </ui:define>
+
+        </ui:composition>
+    </h:body>
+</html>
+

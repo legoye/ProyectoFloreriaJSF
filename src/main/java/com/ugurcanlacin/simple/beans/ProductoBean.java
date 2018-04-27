@@ -13,12 +13,14 @@ import com.ugurcanlacin.simple.service.UserService;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
@@ -57,6 +59,8 @@ public class ProductoBean extends SpringBeanAutowiringSupport implements Seriali
     private String tamaño;
 
     private Set<Categoria> categorias = new HashSet<Categoria>(0);
+    
+    
 
     public ProductoBean() {
 
@@ -157,6 +161,25 @@ public class ProductoBean extends SpringBeanAutowiringSupport implements Seriali
     
     public void listaProductos(){
         list = productoService.findAll();
+    }
+    
+    public  String detalleProducto(){
+            
+        String id = "";
+        id = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("id");
+        System.out.println("id recibido"+id);
+
+        Producto p = new Producto();
+        p = productoService.findById(Integer.parseInt(id));
+        this.id = p.getId();
+        this.name = p.getName();
+        this.descripcion = p.getDescripcion();
+        this.tamaño = p.getTamaño();
+        this.disponibilidad = p.getDisponibilidad();
+        this.tipo = p.getTipo();
+        
+        return "detalle_producto";
+    
     }
 
     public String test() {
