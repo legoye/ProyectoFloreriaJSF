@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Examen Signos</title>
+        <h:outputStylesheet library="versiones" name="css/estilo.css" />
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:outputLabel value="Criterio de selección" for="txtNum"/>
+            
+            
+            <h:selectOneMenu value="#{nav.seleccion}">
+                <f:selectItem itemValue="estacion" itemLabel="Estación del año" />
+                <f:selectItem itemValue="numero" itemLabel="Número de mes" />               
+            </h:selectOneMenu>
+
+            <h:commandButton action="#{nav.elegir}" value="Enviar"/>
+            
+        </h:form>
+    </h:body>
+</html>

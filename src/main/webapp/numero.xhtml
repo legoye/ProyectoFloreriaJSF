@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+    <h:head>
+        <title>Examen Signos</title>
+        <h:outputStylesheet library="versiones" name="css/estilo.css" />
+    </h:head>
+    <body>
+        <h3>Buscar por número de mes:</h3>
+        <h:form>
+            <h:outputLabel value="Ingrese el número de mes:" for="txtNum"/>
+            <a jsf:action="index">Regresar</a>
+            <br/>
+            <br/>
+            <h:inputText id="txtNom" value="#{num.numero}" 
+                                maxlength="2" required="true" validatorMessage="El número de mes debe ser entre 1 y 12">
+            <f:validateLongRange minimum="1" maximum="12" />
+            
+            </h:inputText>
+                                
+             <h:inputHidden id="txtOculto"  value="#{calc.fuente}"/>
+
+            <br/>
+            <br/>
+            <h:commandButton action="#{calc.calcular}" value="Ver signos"/>
+            
+        </h:form>    </body>
+</html>
