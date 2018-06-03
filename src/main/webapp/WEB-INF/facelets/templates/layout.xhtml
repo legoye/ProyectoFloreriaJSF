@@ -6,10 +6,10 @@
       xmlns:ui="http://java.sun.com/jsf/facelets" >
 
     <h:head>
-        <meta charset="utf-8"/>
+         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>        
-        <meta name="description" content=""/>
-        <meta name="author" content=""/>
+        <meta name="description" content="Proyecto final lenguajes web"/>
+        <meta name="author" content="José Gregorio García Aguilar"/>
 
         <title>#{messages['application.title']}</title>
         <h:outputStylesheet name="bootstrap.min.css" library="css"/>
@@ -33,7 +33,7 @@
     <h:body>
 
         <ui:insert name="header" >
-            <ui:include src="/templates/header.xhtml" />
+            <ui:include src="header.xhtml" />
         </ui:insert>
 
         <!-- Page Content -->
@@ -42,11 +42,11 @@
             <div class="row">
 
                 <ui:insert name="contentSide" >
-                    <ui:include src="/templates/contentSide.xhtml" />
+                    <ui:include src="contentSide.xhtml" />
                 </ui:insert>
 
                 <ui:insert name="content" >
-                    <ui:include src="/templates/content.xhtml" />
+                    <ui:include src="content.xhtml" />
                 </ui:insert>
 
             </div>    
@@ -55,7 +55,7 @@
 
 
         <ui:insert name="footer" >
-            <ui:include src="/templates/footer.xhtml" />
+            <ui:include src="footer.xhtml" />
         </ui:insert>
 
 
