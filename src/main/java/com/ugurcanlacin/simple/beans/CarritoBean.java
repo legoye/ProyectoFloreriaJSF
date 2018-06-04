@@ -93,10 +93,9 @@ public class CarritoBean extends SpringBeanAutowiringSupport implements Serializ
 //            }
 //            itera++;
 //        }
-        
-        for (int i = 0; i< this.getList().size()  ; i++) {
+        for (int i = 0; i < this.getList().size(); i++) {
             Producto producto = list.get(i);
-             if (producto.getId() == idI) {
+            if (producto.getId() == idI) {
                 list.remove(i);
             }
         }

@@ -14,8 +14,7 @@ import java.util.List;
  * @author admin
  */
 public interface ProductoDao {
-    
-   
+
     void persist(Producto producto);
 
     Producto findById(int id);
@@ -25,7 +24,7 @@ public interface ProductoDao {
     void delete(Producto producto);
 
     List<Producto> findByCategoria(String categoria);
-    
+
     List<Producto> findAll();
-    
+
 }

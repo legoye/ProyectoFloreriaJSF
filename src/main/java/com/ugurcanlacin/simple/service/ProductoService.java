@@ -14,7 +14,7 @@ import java.util.List;
  * @author admin
  */
 public interface ProductoService {
-    
+
     void persist(Producto producto);
 
     Producto findById(int id);
@@ -24,9 +24,7 @@ public interface ProductoService {
     void delete(Producto producto);
 
     List<Producto> findByCategoria(String categoria);
-    
+
     List<Producto> findAll();
 
-   
-    
 }

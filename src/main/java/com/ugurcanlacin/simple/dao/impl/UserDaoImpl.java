@@ -11,7 +11,7 @@ import java.util.List;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 @Repository("userDao")
-public class UserDaoImpl  implements UserDao {
+public class UserDaoImpl implements UserDao {
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -48,8 +48,6 @@ public class UserDaoImpl  implements UserDao {
         } else {
             return null;
         }
-
-       
 
     }
 }

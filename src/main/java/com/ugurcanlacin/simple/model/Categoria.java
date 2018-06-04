@@ -17,9 +17,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "categoria")
+@Table(name = "categoria_flores")
 public class Categoria implements java.io.Serializable {
-    
+
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
@@ -27,13 +27,24 @@ public class Categoria implements java.io.Serializable {
 
     @Column(name = "nombre", nullable = false, length = 20)
     private String name;
-    
+
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "categorias")
     private Set<Producto> productos = new HashSet<Producto>(0);
 
-
     public Categoria() {
     }
+
+    public Categoria(Integer id) {
+        this.id = id;
+    }
+    
+    
+
+    public Categoria(String name) {
+        this.name = name;
+    }
+    
+    
 
     public Categoria(Integer id, String name) {
         this.id = id;
@@ -63,10 +74,12 @@ public class Categoria implements java.io.Serializable {
     public void setProductos(Set<Producto> productos) {
         this.productos = productos;
     }
+
+    @Override
+    public String toString() {
+        return "Categoria{" + "id=" + id + ", name=" + name + "}";
+    }
     
     
-    
-    
-    
-    
+
 }

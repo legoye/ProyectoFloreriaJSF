@@ -23,13 +23,13 @@ import org.springframework.stereotype.Repository;
  * @author admin
  */
 @Repository("productoDao")
-public class ProductoDaoImpl  implements ProductoDao {
-    
+public class ProductoDaoImpl implements ProductoDao {
+
     @Autowired
     private SessionFactory sessionFactory;
 
     public void persist(Producto producto) {
-        sessionFactory.getCurrentSession().persist(producto);
+        sessionFactory.getCurrentSession().saveOrUpdate(producto);
     }
 
     public Producto findById(int id) {
@@ -61,27 +61,21 @@ public class ProductoDaoImpl  implements ProductoDao {
             return null;
         }
 
-       
-
     }
-    
-    
+
     public List<Producto> findAll() {
-        
-        List<Producto> lista = null ;  
+
+        List<Producto> lista = null;
         Session s = sessionFactory.getCurrentSession();
-        
-        try{
-            
-        lista = s.createQuery(" from Producto").list();
-        }catch(HibernateException e){
-        e.printStackTrace();
+
+        try {
+
+            lista = s.createQuery(" from Producto").list();
+        } catch (HibernateException e) {
+            e.printStackTrace();
             System.out.println("fadfadf");
         }
         return lista;
     }
 
-    
-    
-    
 }

@@ -32,37 +32,35 @@ public class Producto implements java.io.Serializable {
 
     @Column(name = "descripcion", nullable = false, length = 200)
     private String descripcion;
-    
+
     @Column(name = "precio", nullable = false, length = 20)
     private Double precio;
-    
+
     @Column(name = "imagen", nullable = false, length = 200)
     private String imagen;
-    
+
     @Column(name = "tipo", nullable = false, length = 20)
     private String tipo;
-    
+
     @Column(name = "disponibilidad", nullable = false, length = 30)
     private String disponibilidad;
-    
+
     @Column(name = "tamaño", nullable = false, length = 30)
     private String tamaño;
-    
-    @ManyToMany(cascade = { CascadeType.ALL })
+
+    @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
-        name = "producto_has_categoria_flores", 
-        joinColumns = { @JoinColumn(name = "Producto_id") }, 
-        inverseJoinColumns = { @JoinColumn(name = "Categoria_Flores_id") }
+            name = "producto_has_categoria_flores",
+            joinColumns = {
+                @JoinColumn(name = "Producto_id")},
+            inverseJoinColumns = {
+                @JoinColumn(name = "Categoria_Flores_id")}
     )
     private Set<Categoria> categorias = new HashSet<Categoria>(0);
 //    Set<Categoria> categorias = new HashSet<>();
-    
-    
 
     public Producto() {
     }
-    
-    
 
     public Producto(Integer id, String name, String lastName, Double precio, String imagen, String tipo, String disponibilidad, String tamaño) {
         this.id = id;
@@ -74,9 +72,6 @@ public class Producto implements java.io.Serializable {
         this.disponibilidad = disponibilidad;
         this.tamaño = tamaño;
     }
-    
-    
-    
 
     public Integer getId() {
         return id;
@@ -157,7 +152,5 @@ public class Producto implements java.io.Serializable {
     public void setCategorias(Set<Categoria> categorias) {
         this.categorias = categorias;
     }
-    
-    
-    
+
 }

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+
+
+        <ui:composition template="/WEB-INF/facelets/templates/layout.xhtml">
+
+            <ui:define name="contentSide">
+
+            </ui:define>
+
+            <ui:define name="content">
+                <div id="container" class="container">
+
+
+                    <div class="row">
+                        <div class=" col-md-2">
+
+                        </div>
+
+                        <div class=" col-md-8">
+
+                            <div class="row" style="margin-top: 50px">
+                                <div class=" col-md-4" style="margin-left:  -20px">
+                                   <p:outputLabel value="Administracion de productos"></p:outputLabel>     
+                                </div>
+                                
+                                <div class=" col-md-2">
+                                    <p:link outcome="adminProductos" value="Regresar"></p:link>
+                                </div>
+                                
+                            </div>
+                            <div class="row" >
+                                <p:outputLabel value="Registrar Producto"></p:outputLabel>
+                            </div>
+
+                            <div class="row">
+                                <h:form>  
+
+                                    <p:panel id="panel" header="Form" style="margin-bottom:10px;">
+                                        <p:growl id="message" showDetail="true" />
+
+                                        <p:panelGrid columns="2">  
+                                            <h:outputLabel  value="Nombre del Producto:" />  
+                                            <p:inputText id="username" value="#{productoBean.newProducto.name}" required="true"  label="Nombre del producto" placeholder="Nombre del producto" />  
+
+                                            <h:outputLabel  value="Descripcion" />  
+                                            <p:inputText id="userage" label="User Age" value="#{productoBean.newProducto.descripcion}" required="true"  placeholder="Descripcion" />  
+
+                                            <h:outputLabel  value="Precio" />  
+                                            <p:inputText id="precio" label="User Age" value="#{productoBean.newProducto.precio}" required="true"  placeholder="Precio" />  
+
+
+                                            <p:outputLabel  value="Tipo:" />
+                                            <p:selectOneMenu value="#{productoBean.newProducto.tipo}" >
+                                                <f:selectItem itemLabel="Centro" itemValue="Centro" />
+                                                <f:selectItem itemLabel="Arreglo Florario" itemValue="Arreglo Florario" />
+                                                <f:selectItem itemLabel="Arreglo Funerario" itemValue="Arrreglo Funerario" />
+                                                <f:selectItem itemLabel="Planta en Maceta" itemValue="Planta en Maceta" />
+                                            </p:selectOneMenu>
+
+                                            <p:outputLabel  value="Disponibilidad:" />
+                                            <p:selectOneMenu  value="#{productoBean.newProducto.disponibilidad}" >
+                                                <f:selectItem itemLabel="Menudeo" itemValue="Menudeo" />
+                                                <f:selectItem itemLabel="Evento" itemValue="Evento" />
+
+                                            </p:selectOneMenu>
+
+                                            <p:outputLabel  value="Tamaño:" />
+                                            <p:selectOneMenu value="#{productoBean.newProducto.tamaño}" >
+                                                <f:selectItem itemLabel="Pequeño" itemValue="Pequeño±o" />
+                                                <f:selectItem itemLabel="Mediano" itemValue="Mediano" />
+                                                <f:selectItem itemLabel="Grande" itemValue="Grande" />
+
+                                            </p:selectOneMenu>
+
+                                            <h:outputLabel value="Categorias(Una o varias)" />  
+                                            <p:selectManyMenu  value="#{productoBean.selectedCategorias}">
+                                                <f:selectItems value="#{productoBean.categoriasSelect}" var="cat" itemValue="#{cat.id}" itemLabel="#{cat.name}" />
+
+                                            </p:selectManyMenu> 
+
+                                            <p:commandButton  value="Cancelar" /> 
+
+
+                                            <p:commandButton value="Registrar" actionListener="#{productoBean.agregaProducto()}" update="message" >
+                                                <p:confirm header="Confirmacion" message="Confirmar Registro" icon="ui-icon-alert" />
+                                            </p:commandButton>
+
+                                            <p:commandButton value="Limpiar Formulario" update="panel" process="@this" style="margin-right:20px;" >
+                                                <p:resetInput target="panel" />
+                                            </p:commandButton>
+
+                                            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                                <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"  />
+                                                <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                                            </p:confirmDialog>
+
+
+                                        </p:panelGrid>  
+                                    </p:panel>
+                                </h:form>  
+
+
+
+
+
+                            </div>
+
+
+                            <div class=" col-md-2">
+
+
+
+
+                            </div>
+
+                            <div class="row" >
+
+
+
+                            </div> 
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+            </ui:define>
+
+        </ui:composition>
+
+
+    </h:body>
+</html>
+
+

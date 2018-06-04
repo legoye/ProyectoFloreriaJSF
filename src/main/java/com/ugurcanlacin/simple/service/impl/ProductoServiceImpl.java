@@ -21,10 +21,9 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service("productoService")
 public class ProductoServiceImpl implements ProductoService {
-    
+
     @Autowired
     ProductoDao productoDao;
-   
 
     @Transactional
     public void persist(Producto producto) {
@@ -55,11 +54,11 @@ public class ProductoServiceImpl implements ProductoService {
     public List<Producto> findByCategoria(String categoria) {
         return productoDao.findByCategoria(categoria);
     }
-    
+
     @Transactional
     @Override
-    public List<Producto> findAll(){
+    public List<Producto> findAll() {
         return productoDao.findAll();
     }
-    
+
 }
