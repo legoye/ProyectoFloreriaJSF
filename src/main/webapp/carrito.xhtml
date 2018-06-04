@@ -23,110 +23,158 @@
                         </div>
 
                         <div class=" col-md-8">
-                            <div class="row" style="margin-top: 50px">
-                                <h2>Mi Carrito de Compras</h2>
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                <h:dataTable value="#{carritoBean.list}" var="oSig" border="1"
-                                             headerClass="mdb-color darken-3" 
-                                             styleClass="table">
-                                    <f:facet name="header">
-                                        <h:outputText value="Mis carrito de Compras"/>
-                                    </f:facet>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="Nombre del Articulo"/>
-                                        </f:facet>
-                                        <h:outputText value="#{oSig.name}"/>
-
-                                    </h:column>
-                                    <h:column footerClass="cab">
-                                        <f:facet name="header">
-                                            <h:outputText value="Descripcion del Producto"/>
-                                        </f:facet>
-                                        <h:outputText value="#{oSig.descripcion}"/>
-
-                                    </h:column>
-                                    <h:column footerClass="cab">
-                                        <f:facet name="header">
-                                            <h:outputText value="Precio"/>
-                                        </f:facet>
-                                        <h:outputText value="#{oSig.precio}"/>
-
-                                    </h:column>
-
-                                    <h:column footerClass="cab">
-                                        <f:facet name="header">
-                                            <h:outputText value="Eliminar"/>
-                                        </f:facet>
-                                        <h:form>
-                                            <h:commandButton value="Eliminar" action="#{carritoBean.borrarCarrito()}">
-                                                <f:param value="#{oSig.id}" name="id"/>
-                                            </h:commandButton>
-                                        </h:form>     
-
-                                    </h:column>
-
-                                    <f:facet name="footer">
-                                        <h:outputText value="Mis articulos seleccionados"/>
-                                    </f:facet>
-                                </h:dataTable>
-
-
-
-                                <!--Table
-                                <table class="table">
-                                    
-                                    <thead class="mdb-color darken-3">
-                                        <tr class="text-white">
-                                            <th>#No.</th>
-                                            <th>Nombre del Producto</th>
-                                            <th>DescripciÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â³n</th>
-                                            <th>Precio</th>
-                                        </tr>
-                                    </thead>
-                                   
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Producto 1</td>
-                                            <td>DescripciÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â³n producto 1</td>
-                                            <td>$500.00</td>
-                                        </tr>                             
-                                    </tbody>
-                                    
-                                </table>
-                                Table-->
+                            
+                            <div class="row" style="margin-top: 20px" >
+                             <p:messages id="messages" showDetail="true" closable="true">
+                                    <p:autoUpdate />
+                                </p:messages>
                             </div>
+                            
+                            <div class="row" style="margin-top: 20px" >
+                                <p:outputLabel value="Mi Carrito:"></p:outputLabel> 
+                                
+ 
+
+                            </div>
+
+                            <div class="row" style="margin-top: 10px">
+                                <h:form>
+                                    <p:wizard  showNavBar="false" widgetVar="wiz">>
+                                        <p:tab id="personal" title="Carrito" >
+                                            <p:panel header="Mis Productos Selecionados" style="width: 100%">
+                                                <p:dataTable var="car" value="#{carritoBean.list}">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Mis carrito de Compras"/>
+                                                    </f:facet>
+
+                                                    <p:column>
+
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Nombre" />
+                                                        </f:facet>
+                                                        <h:outputText value="#{car.name}" />
+                                                    </p:column>
+                                                    <p:column>
+
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Descripcion del producto" />
+                                                        </f:facet>
+                                                        <h:outputText value="#{car.descripcion}" />
+                                                    </p:column>
+
+                                                    <p:column>
+
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Precio" />
+                                                        </f:facet>
+                                                        <h:outputText value="#{car.precio}" />
+                                                    </p:column>
+
+                                                    <p:column>
+
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Eliminar" />
+                                                        </f:facet>
+                                                        <h:form>
+                                                            <h:commandButton value="Eliminar" action="#{carritoBean.borrarCarrito()}">
+                                                                <f:param value="#{car.id}" name="id"/>
+                                                            </h:commandButton>
+                                                        </h:form>     
+                                                    </p:column>
+
+                                                </p:dataTable>
+                                            </p:panel>
+                                        </p:tab>
+                                        <p:tab id="address" title="Direccion de Envio" >
+                                            <p:panel header="Direccion de Envio" >
+                                                <h:messages errorClass="error"/>
+                                                <h:panelGrid columns="2" width="800px" columnClasses="label, value">
+                                                    <h:outputText value="Calle: " />
+                                                    <p:inputText value="#{carritoBean.calle}" required="true" label="call"/>
+                                                    <h:outputText value="Numero: " />
+                                                    <p:inputText value="#{carritoBean.numero}" required="true" label="numero"/>
+                                                    <h:outputText value="Codigo Postal: " />
+                                                    <p:inputText value="#{carritoBean.cp}" required="true" label="cp"/>
+
+
+                                                </h:panelGrid>
+                                            </p:panel>
+                                        </p:tab>
+                                        <p:tab id="contact" title="Pago">
+                                            <p:panel header="Pago">
+                                                <h:messages errorClass="error"/>
+                                                <h:panelGrid columns="2" width="800px">
+                                                    <h:outputText value="Nombre Titular *" />
+                                                    <p:inputText value="#{carritoBean.nombreTitular}" required="true" label="cp"/>
+                                                    <h:outputText value="Numero de Tarjeta *" />
+                                                    <p:inputText value="#{carritoBean.numeroTarjeta}" required="true" label="call"/>
+                                                    <h:outputText value="Vencimiento * " />
+                                                    <p:calendar id="popup" value="#{carritoBean.fechaVencimiento}" />
+
+
+
+                                                </h:panelGrid>
+                                            </p:panel>
+                                        </p:tab>
+                                        <p:tab id="confirm" title="Confirmacion de Compra">
+                                            <p:panel header="Confirmacion de Compra" >
+                                                <h:panelGrid id="confirmation" columns="2" width="800px">
+                                                    <h:outputText value="Calle " />
+                                                    <h:outputText value="#{carritoBean.calle}" />
+                                                    <h:outputText value="Codigo Postal " />
+                                                    <h:outputText value="#{carritoBean.cp}" />
+                                                    <h:outputText value="Numero de Tarjeta " />
+                                                    <h:outputText value="#{carritoBean.numeroTarjeta}" />
+                                                   
+
+
+                                                </h:panelGrid>
+                                                
+                                               
+                                                <p:commandButton value="Pagar" actionListener="#{carritoBean.pagar()}" />
+                                            </p:panel>
+                                        </p:tab>
+                                    </p:wizard>
+
+
+
+                                </h:form>
+
+
+
+
+
+
+
+
+
+                            </div>
+
+                            <div class="row" >
+
+                                <div class="col-md-8">
+
+                                </div>
+                                <div class="col-md-2">
+                                    <h:outputLink value="#" onclick="PF('wiz').back();">Regresar</h:outputLink>
+                                </div>
+                                <div class="col-md-2">
+                                    <h:outputLink value="#" onclick="PF('wiz').next();">Siguiente</h:outputLink>
+
+                                </div>
+
+
+                            </div> 
+
+
                             <div class="row" >
                                 <div class="col-lg-8 col-md-6 mb-4">
                                 </div>
                                 <div class="col-lg-2 col-md-6 mb-4">
-                                    <h1>Total:</h1>
+                                    <p:outputLabel value="Total:"></p:outputLabel> 
                                 </div>
                                 <div class="col-lg-2 col-md-6 mb-4">             
-                                    <h2>$2100.00</h2>
+                                    <p:outputLabel value="#{carritoBean.total}"></p:outputLabel> 
                                 </div>
 
                             </div>
@@ -135,17 +183,7 @@
 
                             </div>
 
-                            <div class="row" >
 
-                                <div class="col-lg-8 col-md-6 mb-4">
-                                </div>
-                                <div class="col-lg-2 col-md-6 mb-4">
-                                </div>
-                                <div class="col-lg-2 col-md-6 mb-4">             
-                                    <a href="pago.html" class="btn btn-primary">Pagar</a>
-                                </div>
-
-                            </div> 
 
 
                         </div>

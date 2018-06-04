@@ -5,7 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <h:body>
         <ui:composition template="/WEB-INF/facelets/templates/layout.xhtml">
@@ -14,110 +15,42 @@
                 <div class="col-lg-9" >             
 
 
-                    <div class="row" style="margin-top: 30px">
+                    <div class="row" style="margin-top: 30px;margin-bottom: 30px">
 
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-100">
-                                <a href="detalleProducto.html"><img class="card-img-top" src="http://placehold.it/700x400" alt=""/></a>
-                                <div class="card-body">
-                                    <h4 class="card-title">
-                                        <a href="detalleProducto.html">ArtÃƒÂ­culo 1</a>
-                                    </h4>
-                                    <h5>$24.99</h5>
-                                    <p class="card-text">Ã‚Â¡informaciÃƒÂ³n de la descripcion del producto!</p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                                </div>
-                            </div>
-                        </div>
+                        <p:dataGrid var="pro" value="#{productoBean.list}" columns="4" rows="12" paginator="true" layout="grid" rowsPerPageTemplate="6,12,16">
 
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-100">
-                                <a href="detalleProducto.html"><img class="card-img-top" src="http://placehold.it/700x400" alt=""/></a>
-                                <div class="card-body">
-                                    <h4 class="card-title">
-                                        <a href="detalleProducto.html">ArtÃƒÂ­culo 2</a>
-                                    </h4>
-                                    <h5>$24.99</h5>
-                                    <p class="card-text">Ã‚Â¡informaciÃƒÂ³n de la descripcion del producto!</p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                                </div>
-                            </div>
-                        </div>
+                            <f:facet name="header">
+                                Nuestros Productos
+                            </f:facet>
 
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-100">
-                                <a href="detalleProducto.html"><img class="card-img-top" src="http://placehold.it/700x400" alt=""/></a>
-                                <div class="card-body">
-                                    <h4 class="card-title">
-                                        <a href="detalleProducto.html">ArtÃƒÂ­culo 3</a>
-                                    </h4>
-                                    <h5>$24.99</h5>
-                                    <p class="card-text">Ã‚Â¡informaciÃƒÂ³n de la descripcion del producto!</p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                                </div>
-                            </div>
-                        </div>
+                            <p:column>
+                                <h:form>
 
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-100">
-                                <a href="detalleProducto.html"><img class="card-img-top" src="http://placehold.it/700x400" alt=""/></a>
-                                <div class="card-body">
-                                    <h4 class="card-title">
-                                        <a href="detalleProducto.html">ArtÃƒÂ­culo 4</a>
-                                    </h4>
-                                    <h5>$24.99</h5>
-                                    <p class="card-text">Ã‚Â¡informaciÃƒÂ³n de la descripcion del producto!</p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                                </div>
-                            </div>
-                        </div>
+                                    <p:panel header="#{pro.name}" style="text-align:center">
+                                        <h:panelGrid columns="1" style="width:100%">
+                                            <p:graphicImage value="http://placehold.it/140x100"/>
+                                            <h:outputText value="#{pro.descripcion}" />
+                                            <h:outputText value="#{pro.precio}" />
+                                            <h:commandLink  value="Detalles" action="#{productoBean.detalleProducto}">
+                                                <f:param value="#{pro.id}" name="id"/>
 
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-100">
-                                <a href="detalleProducto.html"><img class="card-img-top" src="http://placehold.it/700x400" alt=""/></a>
-                                <div class="card-body">
-                                    <h4 class="card-title">
-                                        <a href="detalleProducto.html">ArtÃƒÂ­culo 5</a>
-                                    </h4>
-                                    <h5>$24.99</h5>
-                                    <p class="card-text">Ã‚Â¡informaciÃƒÂ³n de la descripcion del producto!</p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                                </div>
-                            </div>
-                        </div>
+                                            </h:commandLink>
 
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-100">
-                                <a href="detalleProducto.html"><img class="card-img-top" src="http://placehold.it/700x400" alt=""/></a>
-                                <div class="card-body">
-                                    <h4 class="card-title">
-                                        <a href="detalleProducto.html">ArtÃƒÂ­culo 6</a>
-                                    </h4>
-                                    <h5>$24.99</h5>
-                                    <p class="card-text">Ã‚Â¡informaciÃƒÂ³n de la descripcion del producto!</p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                                </div>
-                            </div>
-                        </div>
+                                        </h:panelGrid>
+                                    </p:panel>
+
+                                </h:form>
+                            </p:column>
+                        </p:dataGrid>
+
+
 
                     </div>
                     <!-- /.row -->
 
 
-                    </div>
-                    <!-- /.col-lg-9 -->
+                </div>
+                <!-- /.col-lg-9 -->
 
 
             </ui:define>
