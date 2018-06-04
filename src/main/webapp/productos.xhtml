@@ -24,22 +24,30 @@
                             </f:facet>
 
                             <p:column>
-                                <h:form>
 
-                                    <p:panel header="#{pro.name}" style="text-align:center">
-                                        <h:panelGrid columns="1" style="width:100%">
-                                            <p:graphicImage value="http://placehold.it/140x100"/>
-                                            <h:outputText value="#{pro.descripcion}" />
-                                            <h:outputText value="#{pro.precio}" />
-                                            <h:commandLink  value="Detalles" action="#{productoBean.detalleProducto}">
+
+                                <p:panel header="#{pro.name}" style="text-align:center">
+                                    <h:panelGrid columns="1" style="width:100%">
+                                        <p:graphicImage value="http://placehold.it/140x100"/>
+                                        <h:outputText value="#{pro.descripcion}" />
+                                        <h:outputText value="#{pro.precio}" />
+                                        <h:form>
+                                            <h:commandButton value="Comprar" action="#{carritoBean.agregarCarrito}">
+                                                <f:param value="#{pro.id}" name="id"/>
+                                            </h:commandButton>
+                                        </h:form>    
+                                        <h:form>
+                                            <h:commandLink  value="Ver Detalles" action="#{productoBean.detalleProducto}">
                                                 <f:param value="#{pro.id}" name="id"/>
 
                                             </h:commandLink>
+                                        </h:form>
+    
 
-                                        </h:panelGrid>
-                                    </p:panel>
+                                    </h:panelGrid>
+                                </p:panel>
 
-                                </h:form>
+                                
                             </p:column>
                         </p:dataGrid>
 
