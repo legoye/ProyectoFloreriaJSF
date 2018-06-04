@@ -250,7 +250,7 @@ public class ProductoBean extends SpringBeanAutowiringSupport implements Seriali
     
     public void eliminaProducto(String id) throws IOException {
 
-        System.out.println("entra a editar Producto");
+        System.out.println("entra a eliminar Producto");
 
         // id = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("id");
         System.out.println("id recibido" + id);
@@ -258,7 +258,7 @@ public class ProductoBean extends SpringBeanAutowiringSupport implements Seriali
         productoService.delete(productoService.findById (Integer.parseInt(id))); 
 
         addMessage("Eliminado", "Su producto ha sido eliminado correctamente.");
-       
+        listaProductos();
 
     }
 

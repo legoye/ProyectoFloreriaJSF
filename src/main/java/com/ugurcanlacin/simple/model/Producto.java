@@ -48,7 +48,7 @@ public class Producto implements java.io.Serializable {
     @Column(name = "tamaño", nullable = false, length = 30)
     private String tamaño;
 
-    @ManyToMany(cascade = {CascadeType.ALL})
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "producto_has_categoria_flores",
             joinColumns = {

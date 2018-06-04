@@ -32,10 +32,14 @@
                         <div class=" col-md-8">
                             <div class="row" style="margin-top: 50px">
 
+                                 <div class=" col-md-4">
+                                    <p:outputLabel value="Administracion de productos"></p:outputLabel>
+                                </div>
 
-
-                                <p:outputLabel value="Administracion de productos"></p:outputLabel>
-
+                                
+                                 <div class=" col-md-4">
+                                    <p:link outcome="registrarProducto" value="Registrar Producto"></p:link>
+                                </div>
 
 
                                 <h:form id="form1">
@@ -53,14 +57,15 @@
                                             <f:facet name="header">
                                                 <h:outputText value="Nombre"></h:outputText>
                                             </f:facet>
-                                            <h:outputText value="#{producto.name}"></h:outputText>
+                                            <p:outputLabel value="#{producto.name}"></p:outputLabel>  
+                                         
                                         </p:column>
 
                                         <p:column>
                                             <f:facet name="header">
                                                 <h:outputText value="Editar"></h:outputText>
                                             </f:facet>
-                                            <p:commandButton value="Editar" id="nonAjax" actionListener="#{productoBean.editaProducto(producto.id)}" ajax="false" />
+                                            <p:commandButton value="Editar" id="edit" actionListener="#{productoBean.editaProducto(producto.id)}" ajax="false" />
                                         </p:column>
                                         <p:column>
                                             <f:facet name="header">
@@ -68,7 +73,7 @@
                                             </f:facet>
 
 
-                                              <p:commandButton value="Eliminar" id="nonAjax" actionListener="#{productoBean.eliminaProducto(producto.id)}" ajax="false" />
+                                              <p:commandButton value="Eliminar" id="eliminar" actionListener="#{productoBean.eliminaProducto(producto.id)}" ajax="false" />
 
                                         </p:column>
                                     </p:dataTable>

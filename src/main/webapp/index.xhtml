@@ -5,7 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <h:body>
         <ui:composition template="/WEB-INF/facelets/templates/layout.xhtml">
@@ -61,7 +62,8 @@
 
                                       
                                     </h4>
-                                    <h5>#{product.precio} </h5>
+                                    <p:outputLabel value="#{product.precio}"></p:outputLabel> 
+                                   
                                     <p class="card-text">#{product.descripcion}</p>
                                 </div>
                                 <div class="card-footer">
