@@ -31,9 +31,8 @@ import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import org.primefaces.context.RequestContext;
+
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
-import org.primefaces.*;
 
 /**
  *
